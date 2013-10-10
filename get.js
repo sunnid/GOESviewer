@@ -32,4 +32,4 @@ var download = function(url, dest, cb) {
   });
 }
 
-download('http://www.ssd.noaa.gov/goes/east/cp/rgb.jpg', 'rgb.jpg.', function(){console.log('done!');});
+download('http://www.ssd.noaa.gov/goes/east/cp/rgb.jpg', 'rgb.jpg.%H:%M:%S', function(){console.log('done!');});
