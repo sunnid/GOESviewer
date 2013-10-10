@@ -17,6 +17,7 @@ function dateFormat (date, fstr, utc) {
 
 /* dateFormat (new Date (), "%Y-%m-%d %H:%M:%S", true) returns 
    "2012-05-18 05:37:21"  */
+
 var http = require('http');
 var fs = require('fs');
 
