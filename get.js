@@ -1,15 +1,36 @@
 var http = require('http');
 var fs = require('fs');
 
-var download = function(url, dest, cb) {
-  var file = fs.createWriteStream(dest);
-  var request = http.get(url, function(response) {
-    response.pipe(file);
-    file.on('finish', function() {
-      file.close();
-      cb();
-    });
-  });
-}
 
-download('http://www.ssd.noaa.gov/goes/east/cp/rgb.jpg', 'somefile.jpg', function(){console.log('done!');});
+
+    var date = new Date();
+
+    var hour = date.getHours();
+    hour = (hour < 10 ? "0" : "") + hour;
+
+    var min  = date.getMinutes();
+    min = (min < 10 ? "0" : "") + min;
+
+    var sec  = date.getSeconds();
+    sec = (sec < 10 ? "0" : "") + sec;
+
+    var year = date.getFullYear();
+
+    var month = date.getMonth() + 1;
+    month = (month < 10 ? "0" : "") + month;
+
+    var day  = date.getDate();
+    day = (day < 10 ? "0" : "") + day;
+
+
+setInterval(function(){
+var file = fs.createWriteStream("rgb.jpg."+month+day+hour+min+sec+year);
+var request = http.get("http://www.ssd.noaa.gov/goes/east/cp/rgb.jpg", function(response) {
+  response.pipe(file);
+});
+{console.log('done!');};
+}, 2 * 1000);
+
+
+
+
