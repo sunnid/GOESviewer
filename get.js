@@ -129,6 +129,8 @@ var  pages =[
         frequency:10800000,
         url:'http://www.goes.noaa.gov/FULLDISK/GWVS.JPG'
     },
+    
+    {
         name:'GEVS',
         frequency:10800000,
         url:'http://www.goes.noaa.gov/FULLDISK/GEVS.JPG'
