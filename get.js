@@ -1,7 +1,7 @@
 var http = require('http');
 var fs = require('fs');
 
-
+setInterval(function(){
 
     var date = new Date();
 
@@ -23,7 +23,7 @@ var fs = require('fs');
     day = (day < 10 ? "0" : "") + day;
 
 
-setInterval(function(){
+
 var file = fs.createWriteStream("rgb.jpg."+month+day+hour+min+sec+year);
 var request = http.get("http://www.ssd.noaa.gov/goes/east/cp/rgb.jpg", function(response) {
   response.pipe(file);
