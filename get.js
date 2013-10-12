@@ -30,7 +30,7 @@ var download = function(params){
 
 var scrape = function(page,cb){
     var message = "downloading "+page.name;
-    var params = {
+    var params = { //creates in the scope of scrape
         name : page.name,
         url : page.url,
         message : message
