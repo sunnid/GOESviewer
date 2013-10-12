@@ -182,10 +182,7 @@ var  pages_jpg =[
         frequency: 1800000,
         url:'http://www.ssd.noaa.gov/goes/east/cp/ir2.jpg'
     },
-    
 
-        
-// every 15 minutes 
                 
     {
         name:'cme',
