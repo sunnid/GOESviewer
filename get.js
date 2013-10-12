@@ -1,35 +1,52 @@
 var http = require('http');
 var fs = require('fs');
-
-setInterval(function(){
-
-    var date = new Date();
-
-    var hour = date.getHours();
-    hour = (hour < 10 ? "0" : "") + hour;
-
-    var min  = date.getMinutes();
-    min = (min < 10 ? "0" : "") + min;
-
-    var sec  = date.getSeconds();
-    sec = (sec < 10 ? "0" : "") + sec;
-
-    var year = date.getFullYear();
-
-    var month = date.getMonth() + 1;
-    month = (month < 10 ? "0" : "") + month;
-
-    var day  = date.getDate();
-    day = (day < 10 ? "0" : "") + day;
+var  pages =[
+    {
+        name: 'weus_wv',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/west/weus/wv.jpg'
+    },
+    {
+        name:'nhem_wv',
+        frequency:1800000,
+        url:'http://www.ssd.noaa.gov/goes/comp/nhem/wv.jpg'
+    },
+    {
+        name:'nhem_rgb',
+        frequency:1800000,
+        url:'http://www.ssd.noaa.gov/goes/comp/nhem/rgb.jpg'
+    }
+];
 
 
+var download = function(params){
+    var now = new Date().getTime();
+    console.log('downloading '+params.message);
+    var file = fs.createWriteStream(params.name+'_'+now+'jpg');
+    var request = http.get(params['url'], function(response){
+        response.pipe(file);
+    });
+};
 
-var file = fs.createWriteStream("rgb.jpg."+month+day+hour+min+sec+year);
-var request = http.get("http://www.ssd.noaa.gov/goes/east/cp/rgb.jpg", function(response) {
-  response.pipe(file);
-});
-{console.log('done!');};
-}, 2 * 1000);
+var scrape = function(page,cb){
+    var message = "downloading "+page.name;
+    var params = { //creates in the scope of scrape
+        name : page.name,
+        url : page.url,
+        message : message
+    };
+    var scrape_interval = setInterval(function(){
+        cb(params);
+    },page.frequency);
+};
 
+var start = function(targets){
+    var i;
+    for(i=0;i<targets.length;i++){
+        scrape(targets[i],download);
+    }
+};
+
+start(pages);
 
 
