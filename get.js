@@ -1,71 +1,10 @@
 var http = require('http');
 var fs = require('fs');
-var  pages =[
 
- // every 30 minutes
+var pages_gif =[
 
-    {
-        name: 'weus_wv',
-        frequency: 3600000,
-        url:'http://www.ssd.noaa.gov/goes/west/weus/wv.jpg'
-    },
-    
-    {
-        name:'nhem_wv',
-        frequency:3600000,
-        url:'http://www.ssd.noaa.gov/goes/comp/nhem/wv.jpg'
-    },
-    
-    {
-        name:'nhem_rgb',
-        frequency:3600000,
-        url:'http://www.ssd.noaa.gov/goes/comp/nhem/rgb.jpg'
-    },
-    
-    {
-        name:'bou_rgb',
-        frequency:3600000,
-        url:'http://www.ssd.noaa.gov/goes/east/wfo/bou/rgb.jpg'
-    },
-    
-    {
-        name:'bou_rb',
-        frequency:3600000,
-        url:'http://www.ssd.noaa.gov/goes/east/wfo/bou/rb.jpg'
-    },
-    
-    {
-        name:'bou_ir2',
-        frequency:3600000,
-        url:'http://www.ssd.noaa.gov/goes/east/wfo/bou/ir2.jpg'
-    },
-    
-    {
-        name:'central-plains_wv',
-        frequency:3600000,
-        url:'http://www.ssd.noaa.gov/goes/east/cp/wv.jpg'
-    },
-
-    {
-        name:'central-plains_rgb',
-        frequency:3600000,
-        url:'http://www.ssd.noaa.gov/goes/east/cp/rgb.jpg'
-    },
-    
-    {
-        name:'central-plains_rb',
-        frequency:3600000,
-        url:'http://www.ssd.noaa.gov/goes/east/cp/rb.jpg'
-    },
-    
-    {
-        name:'central-plains_ir2',
-        frequency:3600000,
-        url:'http://www.ssd.noaa.gov/goes/east/cp/ir2.jpg'
-    },
-    
 // every 270 seconds (4.5 minutes)
-        
+ 
     {
         name:'FTG_NTP',
         frequency:270000,
@@ -101,26 +40,159 @@ var  pages =[
         frequency:270000,
         url:'http://radar.weather.gov/RadarImg/N0R/FTG_N0R_0.gif'
     },
-        
-// every 15 minutes 
-        
-    {
-        name:'xray',
-        frequency:1800000,
-        url:'http://www.swpc.noaa.gov/sxi/images/latest_sxi.png'
-    },
-        
-    {
-        name:'cme',
-        frequency:1800000,
-        url:'http://sohowww.nascom.nasa.gov/data/realtime/c3/1024/latest.jpg'
-    },
-        
+    
     {
         name:'aurora',
         frequency:1800000,
         url:'http://www.swpc.noaa.gov/pmap/gif/pmapN.gif'
     },
+];
+
+var download_gif = function(params){
+    var now = new Date().getTime();
+    console.log('downloading -> '+params.message);
+    var file = fs.createWriteStream(params.name+'_'+now+'.gif');
+    var request = http.get(params['url'], function(response){
+        response.pipe(file);
+    });
+};
+
+var scrape = function(page,cb){
+    var message = "scraping -> "+page.name;
+    var params = { //creates in the scope of scrape
+        name : page.name,
+        url : page.url,
+        message : message
+    };
+    var scrape_interval = setInterval(function(){
+        cb(params);
+    },page.frequency);
+};
+
+var start = function(targets){
+    var i;
+    for(i=0;i<targets.length;i++){
+        scrape(targets[i],download_gif);
+    }
+};
+
+start(pages_gif);
+
+var pages_png =[
+
+    {
+        name:'xray',
+        frequency:1800000,
+        url:'http://www.swpc.noaa.gov/sxi/images/latest_sxi.png'
+    },
+
+];
+
+var download_png = function(params){
+    var now = new Date().getTime();
+    console.log('downloading -> '+params.message);
+    var file = fs.createWriteStream(params.name+'_'+now+'.png');
+    var request = http.get(params['url'], function(response){
+        response.pipe(file);
+    });
+};
+
+var scrape = function(page,cb){
+    var message = "scraping -> "+page.name;
+    var params = { //creates in the scope of scrape
+        name : page.name,
+        url : page.url,
+        message : message
+    };
+    var scrape_interval = setInterval(function(){
+        cb(params);
+    },page.frequency);
+};
+
+var start = function(targets){
+    var i;
+    for(i=0;i<targets.length;i++){
+        scrape(targets[i],download_png);
+    }
+};
+
+start(pages_png);
+
+
+var  pages_jpg =[
+
+ // every 30 minutes
+
+    {
+        name: 'weus_wv',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/west/weus/wv.jpg'
+    },
+    
+    {
+        name:'nhem_wv',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/comp/nhem/wv.jpg'
+    },
+    
+    {
+        name:'nhem_rgb',
+        frequency:1800000,
+        url:'http://www.ssd.noaa.gov/goes/comp/nhem/rgb.jpg'
+    },
+    
+    {
+        name:'bou_rgb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/wfo/bou/rgb.jpg'
+    },
+    
+    {
+        name:'bou_rb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/wfo/bou/rb.jpg'
+    },
+    
+    {
+        name:'bou_ir2',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/wfo/bou/ir2.jpg'
+    },
+    
+    {
+        name:'central-plains_wv',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/cp/wv.jpg'
+    },
+
+    {
+        name:'central-plains_rgb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/cp/rgb.jpg'
+    },
+    
+    {
+        name:'central-plains_rb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/cp/rb.jpg'
+    },
+    
+    {
+        name:'central-plains_ir2',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/cp/ir2.jpg'
+    },
+    
+
+        
+// every 15 minutes 
+                
+    {
+        name:'cme',
+        frequency: 1800000,
+        url:'http://sohowww.nascom.nasa.gov/data/realtime/c3/1024/latest.jpg'
+    },
+        
         
 // every 3 hours (10800 seconds) 
         
@@ -129,8 +201,8 @@ var  pages =[
         frequency:10800000,
         url:'http://www.goes.noaa.gov/FULLDISK/GWVS.JPG'
     },
-    
     {
+
         name:'GEVS',
         frequency:10800000,
         url:'http://www.goes.noaa.gov/FULLDISK/GEVS.JPG'
@@ -156,17 +228,17 @@ var  pages =[
 ];
 
 
-var download = function(params){
+var download_jpg = function(params){
     var now = new Date().getTime();
-    console.log('downloading '+params.message);
-    var file = fs.createWriteStream(params.name+'_'+now+'jpg');
+    console.log('downloading -> '+params.message);
+    var file = fs.createWriteStream(params.name+'_'+now+'.jpg');
     var request = http.get(params['url'], function(response){
         response.pipe(file);
     });
 };
 
 var scrape = function(page,cb){
-    var message = "downloading "+page.name;
+    var message = "scraping -> "+page.name;
     var params = { //creates in the scope of scrape
         name : page.name,
         url : page.url,
@@ -180,10 +252,13 @@ var scrape = function(page,cb){
 var start = function(targets){
     var i;
     for(i=0;i<targets.length;i++){
-        scrape(targets[i],download);
+        scrape(targets[i],download_jpg);
     }
 };
 
-start(pages);
+start(pages_jpg);
+
+
+
 
 
