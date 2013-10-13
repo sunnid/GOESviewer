@@ -182,8 +182,224 @@ var  pages_jpg =[
         frequency: 1800000,
         url:'http://www.ssd.noaa.gov/goes/east/cp/ir2.jpg'
     },
+    
+    {
+        name:'mw_wv',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/mw/wv.jpg'
+    },
 
-                
+    {
+        name:'mw_rgb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/mw/rgb.jpg'
+    },
+    
+    {
+        name:'mw_rb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/mw/rb.jpg'
+    },
+    
+    {
+        name:'mw_ir2',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/mw/ir2.jpg'
+    },
+    
+    {
+        name:'sc_wv',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/sc/wv.jpg'
+    },
+
+    {
+        name:'sc_rgb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/sc/rgb.jpg'
+    },
+    
+    {
+        name:'sc_rb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/sc/rb.jpg'
+    },
+    
+    {
+        name:'sc_ir2',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/sc/ir2.jpg'
+    },
+    
+    {
+        name:'np_wv',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/np/wv.jpg'
+    },
+
+    {
+        name:'np_rgb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/np/rgb.jpg'
+    },
+    
+    {
+        name:'np_rb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/np/rb.jpg'
+    },
+    
+    {
+        name:'np_ir2',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/np/ir2.jpg'
+    },
+    
+    {
+        name:'ne_wv',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/ne/wv.jpg'
+    },
+
+    {
+        name:'ne_rgb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/ne/rgb.jpg'
+    },
+    
+    {
+        name:'ne_rb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/ne/rb.jpg'
+    },
+    
+    {
+        name:'ne_ir2',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/ne/ir2.jpg'
+    },
+    
+    {
+        name:'ma_wv',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/ma/wv.jpg'
+    },
+
+    {
+        name:'ma_rgb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/ma/rgb.jpg'
+    },
+    
+    {
+        name:'ma_rb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/ma/rb.jpg'
+    },
+    
+    {
+        name:'ma_ir2',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/ma/ir2.jpg'
+    },
+    
+    {
+        name:'wc_wv',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/wc/wv.jpg'
+    },
+
+    {
+        name:'wc_rgb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/wc/rgb.jpg'
+    },
+    
+    {
+        name:'wc_rb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/wc/rb.jpg'
+    },
+    
+    {
+        name:'wc_ir2',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/wc/ir2.jpg'
+    },
+    
+    {
+        name:'sw_wv',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/sw/wv.jpg'
+    },
+
+    {
+        name:'sw_rgb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/sw/rgb.jpg'
+    },
+    
+    {
+        name:'sw_rb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/sw/rb.jpg'
+    },
+    
+    {
+        name:'sw_ir2',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/sw/ir2.jpg'
+    },
+    
+    {
+        name:'nw_wv',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/nw/wv.jpg'
+    },
+
+    {
+        name:'nw_rgb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/nw/rgb.jpg'
+    },
+    
+    {
+        name:'nw_rb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/nw/rb.jpg'
+    },
+    
+    {
+        name:'nw_ir2',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/nw/ir2.jpg'
+    },
+
+    
+    {
+        name:'gl_wv',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/mw/wv.jpg'
+    },
+
+    {
+        name:'gl_rgb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/mw/rgb.jpg'
+    },
+    
+    {
+        name:'gl_rb',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/mw/rb.jpg'
+    },
+    
+    {
+        name:'gl_ir2',
+        frequency: 1800000,
+        url:'http://www.ssd.noaa.gov/goes/east/mw/ir2.jpg'
+    },
+
     {
         name:'cme',
         frequency: 1800000,
