@@ -46,6 +46,12 @@ var pages_gif =[
         frequency:1800000,
         url:'http://www.swpc.noaa.gov/pmap/gif/pmapN.gif'
     },
+    
+    {
+	name:'mk4',
+	frequency:1800000,
+	url:'http://download.hao.ucar.edu/d5/www/fullres/latest/latest.mk4.gif'
+    },
 ];
 
 var download_gif = function(params){
@@ -86,6 +92,11 @@ var pages_png =[
         url:'http://www.swpc.noaa.gov/sxi/images/latest_sxi.png'
     },
 
+    {
+	name:'swap',
+	frequency:1800000,
+	url:'http://www.solarmonitor.org/data/2013/10/13/pngs/swap/swap_00174_fd_20131013_130907.png'
+    },
 ];
 
 var download_png = function(params){
@@ -405,37 +416,46 @@ var  pages_jpg =[
         frequency: 1800000,
         url:'http://sohowww.nascom.nasa.gov/data/realtime/c3/1024/latest.jpg'
     },
-        
-        
+
+    {
+        name:'hfulb',
+        frequency: 1800000,
+        url:'http://www.bbso.njit.edu/Images/daily/images/hfullb.jpg'
+    },        
+    {
+	name:'c2',
+	frequency: 1800000,
+	url:'http://sohowww.nascom.nasa.gov/data/realtime/c2/1024/latest.jpg'
+     },   
 // every 3 hours (10800 seconds) 
         
     {
         name:'GWVS',
-        frequency:10800000,
+        frequency: 10800000,
         url:'http://www.goes.noaa.gov/FULLDISK/GWVS.JPG'
     },
     {
 
         name:'GEVS',
-        frequency:10800000,
+        frequency: 10800000,
         url:'http://www.goes.noaa.gov/FULLDISK/GEVS.JPG'
     },
     
     {
         name:'GEIR',
-        frequency:10800000,
+        frequency: 10800000,
         url:'http://www.goes.noaa.gov/FULLDISK/GEIR.JPG'
     },
 
     {
         name:'MTVS',
-        frequency:10800000,
+        frequency: 10800000,
         url:'http://www.goes.noaa.gov/FULLDISK/MTVS.JPG'
     },
 
     {
         name:'GIVS',
-        frequency:10800000,
+        frequency: 10800000,
         url:'http://www.goes.noaa.gov/FULLDISK/GIVS.JPG'
     },
 ];
