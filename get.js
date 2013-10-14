@@ -43,13 +43,13 @@ var pages_gif =[
     
     {
         name:'aurora',
-        frequency:1800000,
+        frequency:900000,
         url:'http://www.swpc.noaa.gov/pmap/gif/pmapN.gif'
     },
     
     {
 	name:'mk4',
-	frequency:1800000,
+	frequency:900000,
 	url:'http://download.hao.ucar.edu/d5/www/fullres/latest/latest.mk4.gif'
     },
 ];
@@ -88,13 +88,13 @@ var pages_png =[
 
     {
         name:'xray',
-        frequency:1800000,
+        frequency:900000,
         url:'http://www.swpc.noaa.gov/sxi/images/latest_sxi.png'
     },
 
     {
 	name:'swap',
-	frequency:1800000,
+	frequency:900000,
 	url:'http://www.solarmonitor.org/data/2013/10/13/pngs/swap/swap_00174_fd_20131013_130907.png'
     },
 ];
