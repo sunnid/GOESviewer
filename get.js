@@ -3,7 +3,7 @@ var fs = require('fs');
 
 var pages_gif =[
 
-// every 220 seconds (3 minutes, 40 seconds)
+// every 270 seconds (4.5 minutes)
  
     {
         name:'FTG_NTP',
@@ -67,7 +67,7 @@ var download_gif = function(params){
 };
 
 var scrape = function(page,cb){
-    var message = "scraping -> "+page.name' => '+page.url;
+    var message = "scraping -> "+page.url;
     var params = { //creates in the scope of scrape
         name : page.name,
         url : page.url,
@@ -112,7 +112,7 @@ var download_png = function(params){
 };
 
 var scrape = function(page,cb){
-    var message = "scraping -> "+page.name' => '+page.url;
+    var message = "scraping -> "+page.url;
     var params = { //creates in the scope of scrape
         name : page.name,
         url : page.url,
@@ -474,7 +474,7 @@ var download_jpg = function(params){
 };
 
 var scrape = function(page,cb){
-    var message = "scraping -> "+page.name' => '+page.url;
+    var message = "scraping -> "+page.url;
     var params = { //creates in the scope of scrape
         name : page.name,
         url : page.url,
