@@ -3,41 +3,41 @@ var fs = require('fs');
 
 var pages_gif =[
 
-// every 270 seconds (3 minutes, 40 seconds)
+// every 270 seconds (4.5 minutes)
  
     {
         name:'FTG_NTP',
-        frequency:340000,
+        frequency:220000,
         url:'http://radar.weather.gov/RadarImg/NTP/FTG_NTP_0.gif'
     },
         
     {   
         name:'FTG_NCR',
-        frequency:270000,
+        frequency:220000,
         url:'http://radar.weather.gov/RadarImg/NCR/FTG_NCR_0.gif'
     },
         
     {
         name:'FTG_N0Z',
-        frequency:270000,
+        frequency:220000,
         url:'http://radar.weather.gov/RadarImg/N0Z/FTG_N0Z_0.gif'
     },
         
     {
         name:'FTG_N0V',
-        frequency:270000,
+        frequency:220000,
         url:'http://radar.weather.gov/RadarImg/N0V/FTG_N0V_0.gif'
     },
         
     {
         name:'FTG_N0S',
-        frequency:270000,
+        frequency:220000,
         url:'http://radar.weather.gov/RadarImg/N0S/FTG_N0S_0.gif'
     },
         
     {
         name:'FTG_N0R',
-        frequency:270000,
+        frequency:220000,
         url:'http://radar.weather.gov/RadarImg/N0R/FTG_N0R_0.gif'
     },
     
@@ -49,7 +49,7 @@ var pages_gif =[
     
     {
 	name:'mk4',
-	frequency:900000,
+	frequency: 900000,
 	url:'http://download.hao.ucar.edu/d5/www/fullres/latest/latest.mk4.gif'
     },
 ];
@@ -88,13 +88,13 @@ var pages_png =[
 
     {
         name:'xray',
-        frequency:900000,
+        frequency:1800000,
         url:'http://www.swpc.noaa.gov/sxi/images/latest_sxi.png'
     },
 
     {
 	name:'swap',
-	frequency:900000,
+	frequency:1800000,
 	url:'http://www.solarmonitor.org/data/2013/10/13/pngs/swap/swap_00174_fd_20131013_130907.png'
     },
 ];
