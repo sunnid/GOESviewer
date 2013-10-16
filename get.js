@@ -54,6 +54,9 @@ var pages_gif =[
     },
 ];
 
+	
+
+
 var download_gif = function(params){
     var now = new Date().getTime();
     console.log('downloading -> '+params.message);
@@ -64,7 +67,7 @@ var download_gif = function(params){
 };
 
 var scrape = function(page,cb){
-    var message = "scraping -> "+page.name;
+    var message = "scraping -> "+page.name' => '+page.url;
     var params = { //creates in the scope of scrape
         name : page.name,
         url : page.url,
@@ -109,7 +112,7 @@ var download_png = function(params){
 };
 
 var scrape = function(page,cb){
-    var message = "scraping -> "+page.name;
+    var message = "scraping -> "+page.name' => '+page.url;
     var params = { //creates in the scope of scrape
         name : page.name,
         url : page.url,
@@ -471,7 +474,7 @@ var download_jpg = function(params){
 };
 
 var scrape = function(page,cb){
-    var message = "scraping -> "+page.name;
+    var message = "scraping -> "+page.name' => '+page.url;
     var params = { //creates in the scope of scrape
         name : page.name,
         url : page.url,
