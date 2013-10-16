@@ -3,11 +3,11 @@ var fs = require('fs');
 
 var pages_gif =[
 
-// every 270 seconds (4.5 minutes)
+// every 270 seconds (3 minutes, 40 seconds)
  
     {
         name:'FTG_NTP',
-        frequency:270000,
+        frequency:340000,
         url:'http://radar.weather.gov/RadarImg/NTP/FTG_NTP_0.gif'
     },
         
