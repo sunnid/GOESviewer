@@ -3,7 +3,7 @@ var fs = require('fs');
 
 var pages_gif =[
 
-// every 270 seconds (4.5 minutes)
+// every 220 seconds (3 minutes, 40 seconds)
  
     {
         name:'FTG_NTP',
