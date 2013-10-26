@@ -1,7 +1,8 @@
 var http = require('http');
 var fs = require('fs');
 
-var pages_gif =[
+
+var pages =[
 
 // every 270 seconds (4.5 minutes)
  
@@ -52,42 +53,7 @@ var pages_gif =[
 	frequency: 900000,
 	url:'http://download.hao.ucar.edu/d5/www/fullres/latest/latest.mk4.gif'
     },
-];
 
-	
-
-
-var download_gif = function(params){
-    var now = new Date().getTime();
-    console.log('downloading -> '+params.message);
-    var file = fs.createWriteStream(params.name+'_'+now+'.gif');
-    var request = http.get(params['url'], function(response){
-        response.pipe(file);
-    });
-};
-
-var scrape = function(page,cb){
-    var message = "scraping -> "+page.url;
-    var params = { //creates in the scope of scrape
-        name : page.name,
-        url : page.url,
-        message : message
-    };
-    var scrape_interval = setInterval(function(){
-        cb(params);
-    },page.frequency);
-};
-
-var start = function(targets){
-    var i;
-    for(i=0;i<targets.length;i++){
-        scrape(targets[i],download_gif);
-    }
-};
-
-start(pages_gif);
-
-var pages_png =[
 
     {
         name:'xray',
@@ -100,42 +66,7 @@ var pages_png =[
 	frequency:1800000,
 	url:'http://www.solarmonitor.org/data/2013/10/13/pngs/swap/swap_00174_fd_20131013_130907.png'
     },
-];
 
-var download_png = function(params){
-    var now = new Date().getTime();
-    console.log('downloading -> '+params.message);
-    var file = fs.createWriteStream(params.name+'_'+now+'.png');
-    var request = http.get(params['url'], function(response){
-        response.pipe(file);
-    });
-};
-
-var scrape = function(page,cb){
-    var message = "scraping -> "+page.url;
-    var params = { //creates in the scope of scrape
-        name : page.name,
-        url : page.url,
-        message : message
-    };
-    var scrape_interval = setInterval(function(){
-        cb(params);
-    },page.frequency);
-};
-
-var start = function(targets){
-    var i;
-    for(i=0;i<targets.length;i++){
-        scrape(targets[i],download_png);
-    }
-};
-
-start(pages_png);
-
-
-var  pages_jpg =[
-
- // every 30 minutes
 
     {
         name: 'weus_wv',
@@ -437,6 +368,7 @@ var  pages_jpg =[
         frequency: 10800000,
         url:'http://www.goes.noaa.gov/FULLDISK/GWVS.JPG'
     },
+
     {
 
         name:'GEVS',
@@ -464,35 +396,59 @@ var  pages_jpg =[
 ];
 
 
-var download_jpg = function(params){
+
+
+
+var download = function(params){
+	/**
+	*    	params is an object containing the following:
+        *       
+	*	-params.name
+        *	-params.frequency
+        *	-params.url
+	* 
+	*	These variables will change based on how the function download is called.
+	*	Since we want to extract the filename extension from the url, you could simply do:
+	*/
+	var extension = params.url.split('.').pop(); 
+	/**  
+	*	.split() takes params.url and makes an array which is separated by  the periods.
+	*       .pop() takes the last value of the array and returns it.
+	*     
+	*/ 
+
     var now = new Date().getTime();
     console.log('downloading -> '+params.message);
-    var file = fs.createWriteStream(params.name+'_'+now+'.jpg');
+    var file = fs.createWriteStream(params.name+'_'+now+'.'+extension);
     var request = http.get(params['url'], function(response){
         response.pipe(file);
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/index.jade', 'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
     });
 };
 
+
 var scrape = function(page,cb){
-    var message = "scraping -> "+page.url;
+    var message = "scraping -> "+page.name;
     var params = { //creates in the scope of scrape
         name : page.name,
         url : page.url,
         message : message
-    };
+	};
     var scrape_interval = setInterval(function(){
         cb(params);
     },page.frequency);
 };
 
+
+
 var start = function(targets){
     var i;
     for(i=0;i<targets.length;i++){
-        scrape(targets[i],download_jpg);
+        scrape(targets[i],download);
     }
 };
 
-start(pages_jpg);
+start(pages);
 
 
 
