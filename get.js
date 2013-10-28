@@ -5,7 +5,7 @@ var fs = require('fs');
 var pages =[
 
 // every 270 seconds (4.5 minutes)
- 
+
     {
         name:'FTG_NTP',
         frequency:220000,
@@ -49,15 +49,8 @@ var pages =[
     },
     
     {
-	name:'mk4',
-	frequency: 900000,
-	url:'http://download.hao.ucar.edu/d5/www/fullres/latest/latest.mk4.gif'
-    },
-
-
-    {
         name:'xray',
-        frequency:1800000,
+        frequency:900000,
         url:'http://www.swpc.noaa.gov/sxi/images/latest_sxi.png'
     },
 
@@ -422,8 +415,195 @@ var download = function(params){
     var file = fs.createWriteStream(params.name+'_'+now+'.'+extension);
     var request = http.get(params['url'], function(response){
         response.pipe(file);
-        fs.appendFile('/sites/sunnid/www/WeatherButt/views/index.jade', 'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+
     });
+    if(params.name.search("FTG_N0R") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/ftg_n0r.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("FTG_N0S") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/ftg_n0s.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("FTG_N0V") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/ftg_n0v.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("FTG_N0Z") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/ftg_n0z.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("FTG_NCR") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/ftg_ncr.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("FTG_NTP") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/ftg_ntp.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("bou_rgb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/bou_rgb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("bou_rb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/bou_rb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("bou_ir2") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/bou_ir2.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("central-plains_rgb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/central-plains_rgb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("central-plains_rb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/central-plains_rb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("central-plains_wv") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/central-plains_wv.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("central-plains_ir2") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/central-plains_ir2.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+
+    if(params.name.search("gl_rgb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/gl_rgb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("gl_rb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/gl_rb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("gl_ir2") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/gl_ir2.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("gl_wv") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/gl_wv.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("mw_rgb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/mw_rgb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("mw_rb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/mw_rb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("mw_ir2") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/mw_ir2.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("mw_wv") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/mw_wv.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("ma_rgb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/ma_rgb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("ma_rb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/ma_rb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("ma_ir2") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/ma_ir2.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("ma_wv") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/ma_wv.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("nw_rgb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/nw_rgb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("nw_rb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/nw_rb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("nw_ir2") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/nw_ir2.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("nw_wv") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/nw_wv.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("sw_rgb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/sw_rgb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("sw_rb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/sw_rb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("sw_ir2") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/sw_ir2.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("sw_wv") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/sw_wv.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("ne_rgb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/ne_rgb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("ne_rb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/ne_rb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("ne_ir2") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/ne_ir2.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("ne_wv") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/ne_wv.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("se_rgb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/se_rgb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("se_rb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/se_rb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("se_ir2") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/se_ir2.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("se_wv") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/se_wv.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("np_rgb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/np_rgb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("np_rb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/np_rb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("np_ir2") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/np_ir2.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("np_wv") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/np_wv.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("sc_rgb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/sc_rgb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("sc_rb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/sc_rb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("sc_ir2") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/sc_ir2.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("sc_wv") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/sc_wv.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("wc_rgb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/wc_rgb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("wc_rb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/wc_rb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("wc_ir2") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/wc_ir2.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("wc_wv") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/wc_wv.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("cme") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/cme.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("xray") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/xray.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("hfulb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/hfulb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("swap") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/swap.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("aurora") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/aurora.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("c2") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/c2.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("weus_wv") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/weus_wv.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("nehm_rgb") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/nehm_rgb.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+    if(params.name.search("nehm_wv") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/nehm_wv.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
 };
 
 
