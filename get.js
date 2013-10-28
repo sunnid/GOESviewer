@@ -604,6 +604,12 @@ var download = function(params){
     if(params.name.search("nehm_wv") != -1) {
         fs.appendFile('/sites/sunnid/www/WeatherButt/views/nehm_wv.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
     };
+
+/*
+        if(params.name.search("nehm_wv") != -1) {
+        fs.appendFile('/sites/sunnid/www/WeatherButt/views/'+params.name+'.jade', '    '+'img(src= "/images/'+params.name+'_'+now+'.'+extension+'")\r\n');
+    };
+*/    
 };
 
 
